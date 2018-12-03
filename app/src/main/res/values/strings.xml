@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">mini-app04</string>
+    <string name="network_speed_input">100 Mbps</string>
+    <string name="file_size_input">100 MiB</string>
+    <string name="network_speed">Network Speed</string>
+    <string name="file_size">File Size</string>
+    <string name="result">8.4 seconds</string>
+    <string name="invalid_input">File size cannot be 0 MiB</string>
+    <string name="seconds">seconds</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
