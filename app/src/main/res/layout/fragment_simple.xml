@@ -1,92 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SimpleFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="edu.fullerton.cpsc411.mini_app04.SimpleViewModel" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailsFragment"
-        tools:layout_editor_absoluteY="81dp">
+        tools:context=".SimpleFragment">
 
-        <EditText
-            android:id="@+id/NetworkSpeedInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/network_speed_input"
-            android:inputType="number|numberDecimal"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/barrier3"
-            app:layout_constraintTop_toTopOf="parent" tools:targetApi="o"/>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".DetailsFragment"
+            tools:layout_editor_absoluteY="81dp">
 
-        <EditText
-            android:id="@+id/FileSizeInput"
-            android:layout_width="0dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="8dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/file_size_input"
-            android:inputType="number|numberDecimal"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/NetworkSpeedInput"
-            app:layout_constraintStart_toStartOf="@+id/NetworkSpeedInput"
-            app:layout_constraintTop_toBottomOf="@+id/NetworkSpeedInput" tools:targetApi="o"/>
+            <EditText
+                android:id="@+id/NetworkSpeedInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/network_speed_input"
+                android:inputType="number|numberDecimal"
+                android:onTextChanged="@{(s, start, before, count) -> viewmodel.onNetSpeedChanged(s) }"
+                android:text="@{Double.toString(viewmodel.netSpeed)}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/barrier3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="o" />
 
-        <TextView
-            android:id="@+id/FileSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/file_size"
-            app:layout_constraintBaseline_toBaselineOf="@+id/FileSizeInput"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/file_size" />
+            <EditText
+                android:id="@+id/FileSizeInput"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/file_size_input"
+                android:inputType="number|numberDecimal"
+                android:onTextChanged="@{(s, start, before, count) -> viewmodel.onFileSizeChanged(s) }"
+                android:text="@{Double.toString(viewmodel.fileSize)}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/NetworkSpeedInput"
+                app:layout_constraintStart_toStartOf="@+id/NetworkSpeedInput"
+                app:layout_constraintTop_toBottomOf="@+id/NetworkSpeedInput"
+                tools:targetApi="o" />
 
-        <TextView
-            android:id="@+id/NetworkSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/network_speed"
-            app:layout_constraintBaseline_toBaselineOf="@+id/NetworkSpeedInput"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/network_speed" />
+            <TextView
+                android:id="@+id/FileSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/file_size"
+                app:layout_constraintBaseline_toBaselineOf="@+id/FileSizeInput"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/file_size" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="right"
-            app:constraint_referenced_ids="FileSize,NetworkSpeed"/>
+            <TextView
+                android:id="@+id/NetworkSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/network_speed"
+                app:layout_constraintBaseline_toBaselineOf="@+id/NetworkSpeedInput"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/network_speed" />
 
-        <TextView
-            android:id="@+id/Result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/result"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="FileSize,NetworkSpeed" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/Result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/result"
+                android:text='@{viewmodel.transferTime == 0.0? @string/result : Double.toString(viewmodel.transferTime) + " seconds"}'
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>
