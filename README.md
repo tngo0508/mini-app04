@@ -20,12 +20,12 @@ a variable in the <data> section for the ViewModel.
 3. Modify the fragment or activity to create the ViewModel object, [inflate the layout and retrieve 
 the binding](https://developer.android.com/topic/libraries/data-binding/expressions#binding_data), 
 and [assign the ViewModel object to a property in the binding class](https://developer.android.com/topic/libraries/data-binding/architecture#viewmodel).
-__Note__: Remove the Kotlin code from the fragment or activity that has been replaced by data binding.
+-  __Note__: Remove the Kotlin code from the fragment or activity that has been replaced by data binding.
 ## Updating the transfer time
 + The Data Binding Library includes a [BindingAdapter](https://www.bignerdranch.com/blog/descent-into-databinding/#fantastic-bindingadapters-and-where-to-find-them) that will allow handlers for individual 
 [TextWatcher](https://developer.android.com/reference/android/text/TextWatcher) events to be declared in the layout.
 + Add an android:onTextChanged attribute to each of the EditText widgets in the layout and 
-set their [listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions#listener_bindings) to call the methods you added to the ViewModel class.
+set their [listener bindings](https://developer.android.com/topic/libraries/data-binding/expressions#listener_bindings) to call the methods I added to the ViewModel class.
 ## Acknowledgement
 -   **Professor Kenytt Avery** - _kavery@fullerton.edu_ - California State University, Fullerton
 - [Android Data Binding CodeLab](https://codelabs.developers.google.com/codelabs/android-databinding/#0)
